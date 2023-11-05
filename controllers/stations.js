@@ -7,7 +7,7 @@ stationsRouter.get('/', async (req, res) => {
   if (result) {
     res.send(result.rows)
   } else {
-    response.status(404).end()
+    res.status(404).end()
   }
 })
 
@@ -17,7 +17,7 @@ stationsRouter.get('/:id', async (req, res) => {
   if (result) {
     res.send(result.rows)
   } else {
-    response.status(404).end()
+    res.status(404).end()
   }
 })
 
@@ -27,7 +27,7 @@ stationsRouter.get('/:id/departures/', async (req, res) => {
   if (result) {
     res.send(result.rows)
   } else {
-    response.status(404).end()
+    res.status(404).end()
   }
 })
 
@@ -41,7 +41,7 @@ stationsRouter.get('/:id/departures/count', async (req, res) => {
   if (result) {
     res.send(result.rows[0].count)
   } else {
-    response.status(404).end()
+    res.status(404).end()
   }
 })
 
@@ -51,7 +51,7 @@ stationsRouter.get('/:id/returns/', async (req, res) => {
   if (result) {
     res.send(result.rows)
   } else {
-    response.status(404).end()
+    res.status(404).end()
   }
 })
 
@@ -66,7 +66,7 @@ stationsRouter.get('/:id/returns/count', async (req, res) => {
   if (result) {
     res.send(result.rows[0].count)
   } else {
-    response.status(404).end()
+    res.status(404).end()
   }
 })
 

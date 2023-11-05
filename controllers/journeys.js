@@ -7,7 +7,7 @@ journeysRouter.get('/', async (req, res) => {
   if (result) {
     res.send(result.rows)
   } else {
-    response.status(404).end()
+    res.status(404).end()
   }
 })
 
@@ -17,7 +17,7 @@ journeysRouter.get('/:id', async (req, res) => {
   if (result) {
     res.send(result.rows)
   } else {
-    response.status(404).end()
+    res.status(404).end()
   }
 })
 
