@@ -47,6 +47,11 @@ describe('The database is running with all the proper data', () => {
       expect(res.status).toBe(400)
       expect(res.body.error).toBe('Malformatted id.')
     })
+    test.only('SQL Injection attempt will result 400 bad request', async () => {
+      const res = await api.get('/api/stations/105 OR 1=1')
+      expect(res.status).toBe(400)
+      expect(res.body.error).toBe('Malformatted id.')
+    })
   })
 
   describe('Journeys for a specific station endpoint tests', () => {
