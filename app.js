@@ -15,4 +15,5 @@ app.use(express.json())
 app.use('/api/stations', stationsRouter)
 app.use('/api/journeys', journeysRouter)
 app.use(errorHandler)
+
 module.exports = app

@@ -21,12 +21,20 @@ pool.on('release', (error, client) => {
   if (error) {
     console.error('Error in pool release:', error, client)
   } else {
-    console.log('User', client.user, 'accessed database', client.database )
+    //console.log('User', client.user, 'accessed database', client.database )
   }
 })
 
 const query = async (text, params) => {
-  const result = await pool.query(text, params)
-  return result
+  const client = await pool.connect()
+  try {
+    const result = await client.query(text, params)
+    return result
+  } catch (error) {
+    console.error(error.message)
+  } finally {
+    client.release()
+  }
+
 }
-module.exports = { query }
+module.exports = { query, pool }
