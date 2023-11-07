@@ -1,6 +1,12 @@
 # Citybike backend
 This is a backend service to serve a frontend for an [Interview Exercise](https://github.com/solita/dev-academy-spring-2024-exercise).
+## How to install
+1. Clone this directory onto your local machine and navigate to the repository on command line.
+2. Run `npm install`.
+3. Create a file `.env` following the instructions in `.env.example`. 
+4. Run `npm start` to run the server (or optionally `npm run dev` to launch the development server).
 
+Server is now running in `localhost:PORT` and is ready for use.
 ## API
 Only GET operations were needed for this service. The routes were designed to complete certain frontend functionalities.
 | Functionality | Endpoint (api/stations) | Method |
