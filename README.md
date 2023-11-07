@@ -7,6 +7,10 @@ This is a backend service to serve a frontend for an [Interview Exercise](https:
 4. Run `npm start` to run the server (or optionally `npm run dev` to launch the development server).
 
 Server is now running in `localhost:PORT` and is ready for use.
+
+### Tests
+Use `npm test` to run all tests defined with `Jest`.
+
 ## API
 Only GET operations were needed for this service. The routes were designed to complete certain frontend functionalities.
 | Functionality | Endpoint (api/stations) | Method |
@@ -24,4 +28,5 @@ Only GET operations were needed for this service. The routes were designed to co
 - `Express` for routing the endpoints
 - `dotenv` to access environment variables set in .env
 - `eslint` to format code in development
+- `Jest` and `Supertest` to implement tests
 - `nodemon` to restart server automatically in development
