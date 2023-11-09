@@ -14,7 +14,7 @@ const handleQueryResult = (response, result) => {
 }
 // Show names of all stations
 stationsRouter.get('/', async (req, response) => {
-  const result = await db.query('SELECT id, station_name FROM station;')
+  const result = await db.query('SELECT id, station_name, station_address, coordinate_x, coordinate_y FROM station;')
   handleQueryResult(response, result)
 })
 

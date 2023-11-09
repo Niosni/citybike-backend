@@ -23,10 +23,7 @@ describe('The database is running with all the proper data', () => {
     })
     test('A specific station is within the returned stations', async () => {
       const res = await api.get('/api/stations/')
-      expect(res.body).toContainEqual({
-        id: helper.specificStation.details.id,
-        station_name: helper.specificStation.details.station_name
-      })
+      expect(res.body).toContainEqual(helper.specificStation.details)
     })
   })
 
