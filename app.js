@@ -8,9 +8,11 @@ const stationsRouter = require('./controllers/stations')
 const journeysRouter = require('./controllers/journeys')
 const { errorHandler } = require('./utils/middleware')
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('<h1>Citybike API</h1>')
 })
+
+app.use(express.static('dist'))
 app.use(cors())
 app.use(express.json())
 app.use('/api/stations', stationsRouter)
