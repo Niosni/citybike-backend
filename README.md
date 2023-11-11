@@ -1,25 +1,37 @@
-# Citybike backend
-This is a backend service to serve a frontend for an [Interview Exercise](https://github.com/solita/dev-academy-spring-2024-exercise).
-## How to install
-1. Clone this directory onto your local machine and navigate to the repository on command line.
-2. Run `npm install`.
-3. Create a file `.env` following the instructions in `.env.example`. 
-4. Run `npm start` to run the server (or optionally `npm run dev` to launch the development server).
+# Citybike backend // Citybike app
+Citybike app built to showcase HSL city bike data with a backend and frontend projects. This repository is the working repository for the backend, but also contains the the most recent build of the frontend in `/dist` built from the [frontend repository](https://github.com/Niosni/citybike-frontend). 
 
-Server is now running in `localhost:PORT` and is ready for use.
+The data used was given in a [pre-assignment excercise repository](https://github.com/solita/dev-academy-spring-2024-exercise) for a Dev Academy developer role at Solita.
+
+## How to install and run
+1. Running this app requires `npm` package manager and as such, make sure you have [node.js](https://nodejs.org/en) installed.
+2. Follow the instructions on [database repository](https://github.com/solita/dev-academy-spring-2024-exercise/tree/main#instructions-for-running-the-database) to run the database. `Docker` is required to run the database.
+3. Clone this directory onto your local machine and navigate to the repository on command line.
+4. Rename `.env.example` to `.env`.
+5. Run `npm install`.
+7. Run `npm start` to run the server
+
+Server is now running in `localhost:3001` by default and is ready for use.
+
+### Troubleshooting and assinging different ports
+1. Make sure you don't use localhost ports `3001` and `5432` for anything else, as those are the default ports used in this project for the backend and the database respectively.
+2. If port `3001` does not work for you, assign a new port in `.env` for the variable `PORT`.
+3. By default the database is running in port `5432` defined in `docker-compose.yml` in the [database](https://github.com/solita/dev-academy-spring-2024-exercise) folder. If you have that port already reserved, you can change the external port in `docker-compose.yml` and rebuild the Docker container _(assume you want to use port 5433 for example, define the external port as following:_ `ports: - 5433:5432` _)._ You also then need to change the `PGPORT` variable in `.env` in this repository to match the new port you set for the database.
 
 ### Tests
-Use `npm test` to run all tests defined with `Jest`.
+Use `npm test` to run the **integration tests** defined for the backend with `Jest`.
 
 ## API
-Only GET operations were needed for this service. The routes were designed to complete certain frontend functionalities.
-| Functionality | Endpoint (api/stations) | Method |
+Only GET operations were used to satisfy the functional requirements. The routes were designed to complete certain frontend functionalities. All data is served as JSON and serves all the relevant data you might need.
+| Content | Endpoint (api/stations) | Method |
 |:-----|-----------|--|
-| Show all stations | / | GET |
-| Station name and address | /station_id | GET |
-| Average distance and duration of journeys starting from a station | /station_id/departures | GET |
-| Total number of journeys starting from a station | /station_id/departures/count | GET |
-| Total number of journeys ending at a station | /station_id/returns/count | GET |
+| All stations | / | GET |
+| Single station details | /station_id | GET |
+| All journeys started from a station | /station_id/departures | GET |
+| All journeys ended at a station | /station_id/returns | GET |
+
+## Development environment
+If you want to run the backend and [frontend](https://github.com/Niosni/citybike-frontend) separately in a development environment, run `npm run dev` on the root of both repositories. The backend script `npm run build:ui` **assumes the repositories are located in the same parent folder**.
 
 ### Tools and packages used
 - `Docker` to run the `PostgreSQL` database
